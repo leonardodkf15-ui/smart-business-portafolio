@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Docs — Week 0 Build",
-};
+export const metadata: Metadata = { title: "Docs — Week 0 Build" };
 
 export default function DocsPage() {
   return (
@@ -11,18 +9,46 @@ export default function DocsPage() {
         Documentation
       </h1>
       <p className="mb-12 text-zinc-500">
-        Everything you need to get Week 0 Build running.
+        Architecture, tech stack, and setup guide for Week 0 Build.
       </p>
 
       <div className="space-y-12">
-        {/* What is it */}
+        {/* Overview */}
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-zinc-900">What is this?</h2>
+          <h2 className="mb-3 text-lg font-semibold text-zinc-900">Overview</h2>
           <p className="text-sm leading-relaxed text-zinc-600">
-            Week 0 Build is a minimal Next.js 14 starter project. It provides a
-            clean homepage, a docs page, a shared navbar and footer, and nothing
-            else — no bloat, no opinions beyond the basics.
+            Week 0 Build is a Next.js 14 project that serves as the foundation for a
+            weekly build series. It includes a homepage, weekly placeholder pages
+            (Week 1–3), a documentation page, a shared navbar and footer, and is
+            wired up to GitHub, Vercel, and Supabase.
           </p>
+        </section>
+
+        {/* Architecture */}
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-zinc-900">Architecture</h2>
+          <div className="overflow-hidden rounded-lg border border-zinc-100">
+            {[
+              ["Homepage /", "Hero section, feature grid, links to docs and GitHub"],
+              ["Week 1 /week1", "Placeholder — Coming Soon"],
+              ["Week 2 /week2", "Placeholder — Coming Soon"],
+              ["Week 3 /week3", "Placeholder — Coming Soon"],
+              ["Docs /docs", "Project documentation (this page)"],
+              ["GitHub", "Source repository and version control"],
+              ["Vercel", "Deployment — auto-deploys on push to main"],
+              ["Supabase", "Backend database and auth (connected, ready to use)"],
+            ].map(([name, desc], i, arr) => (
+              <div
+                key={name}
+                className={`flex gap-4 px-4 py-3 text-sm ${
+                  i < arr.length - 1 ? "border-b border-zinc-100" : ""
+                }`}
+              >
+                <span className="w-36 shrink-0 font-medium text-zinc-900">{name}</span>
+                <span className="text-zinc-500">{desc}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Tech stack */}
@@ -33,6 +59,8 @@ export default function DocsPage() {
               ["Next.js 14", "App Router, server components, file-based routing"],
               ["Tailwind CSS", "Utility-first CSS, configured via tailwind.config.ts"],
               ["TypeScript", "Static typing across all components and pages"],
+              ["Supabase", "Postgres database, auth, and real-time subscriptions"],
+              ["Vercel", "Edge deployment with preview URLs per branch"],
               ["ESLint", "Linting via eslint-config-next"],
             ].map(([name, desc], i, arr) => (
               <div
@@ -41,23 +69,21 @@ export default function DocsPage() {
                   i < arr.length - 1 ? "border-b border-zinc-100" : ""
                 }`}
               >
-                <span className="w-32 shrink-0 font-medium text-zinc-900">{name}</span>
+                <span className="w-36 shrink-0 font-medium text-zinc-900">{name}</span>
                 <span className="text-zinc-500">{desc}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Running the project */}
+        {/* How to run */}
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-zinc-900">
-            How to run
-          </h2>
+          <h2 className="mb-3 text-lg font-semibold text-zinc-900">How to run</h2>
           <div className="space-y-4">
             {[
-              { label: "Install dependencies", code: "npm install" },
-              { label: "Start dev server", code: "npm run dev" },
-              { label: "Build for production", code: "npm run build && npm start" },
+              { label: "1. Install dependencies", code: "npm install" },
+              { label: "2. Start dev server", code: "npm run dev" },
+              { label: "3. Build for production", code: "npm run build && npm start" },
             ].map(({ label, code }) => (
               <div key={label}>
                 <p className="mb-1.5 text-xs font-medium text-zinc-500">{label}</p>
@@ -67,23 +93,36 @@ export default function DocsPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-sm text-zinc-500">
+            Requires Node.js 18.17+. The dev server runs at{" "}
+            <code className="rounded bg-zinc-100 px-1.5 py-0.5 text-xs font-mono text-zinc-700">
+              http://localhost:3000
+            </code>
+            .
+          </p>
         </section>
 
-        {/* Structure */}
+        {/* Project structure */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-zinc-900">
             Project structure
           </h2>
-          <pre className="rounded-lg bg-zinc-50 border border-zinc-100 px-4 py-4 text-sm text-zinc-700 font-mono leading-7 overflow-x-auto">
+          <pre className="overflow-x-auto rounded-lg border border-zinc-100 bg-zinc-50 px-4 py-4 font-mono text-sm leading-7 text-zinc-700">
 {`week0build/
 ├── app/
-│   ├── layout.tsx       # Root layout (Navbar + Footer)
-│   ├── page.tsx         # Homepage (/)
-│   ├── globals.css      # Tailwind directives
+│   ├── layout.tsx        # Root layout — Navbar + Footer
+│   ├── page.tsx          # Homepage (/)
+│   ├── globals.css       # Tailwind directives
+│   ├── week1/
+│   │   └── page.tsx      # /week1 — Coming Soon
+│   ├── week2/
+│   │   └── page.tsx      # /week2 — Coming Soon
+│   ├── week3/
+│   │   └── page.tsx      # /week3 — Coming Soon
 │   └── docs/
-│       └── page.tsx     # Docs page (/docs)
+│       └── page.tsx      # /docs — Documentation
 └── components/
-    ├── Navbar.tsx
+    ├── Navbar.tsx         # Sticky nav with all route links
     └── Footer.tsx`}
           </pre>
         </section>
