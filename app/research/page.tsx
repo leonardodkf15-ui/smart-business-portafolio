@@ -498,7 +498,7 @@ export default function ResearchPage() {
                         <p className="text-sm leading-relaxed text-slate-200">{b.works}</p>
                       </div>
                       <div className="px-5 py-4">
-                        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-red-400">Doesn't transfer to Mexico</p>
+                        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-red-400">Doesn&apos;t transfer to Mexico</p>
                         <p className="text-sm leading-relaxed text-slate-200">{b.doesntTransfer}</p>
                       </div>
                     </div>
@@ -542,7 +542,7 @@ export default function ResearchPage() {
                 <div className="rounded-2xl border border-red-500/30 bg-red-500/5 p-6">
                   <div className="mb-4 flex items-center gap-2">
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-500/20 text-red-400 text-sm font-bold">✗</span>
-                    <h3 className="font-bold text-white">What Doesn't Transfer</h3>
+                    <h3 className="font-bold text-white">What Doesn&apos;t Transfer</h3>
                   </div>
                   <ul className="space-y-3">
                     {[
@@ -598,7 +598,7 @@ export default function ResearchPage() {
                     {filteredCompetitors.length === 0 ? (
                       <tr>
                         <td colSpan={8} className="px-4 py-8 text-center text-sm text-slate-500">
-                          No results for "{filter}"
+                          No results for &ldquo;{filter}&rdquo;
                         </td>
                       </tr>
                     ) : (
