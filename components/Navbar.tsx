@@ -11,6 +11,8 @@ const links = [
   { href: "/week2", label: "Week 2" },
   { href: "/research", label: "Research" },
   { href: "/week3", label: "Week 3" },
+  { href: "/product", label: "Product" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/docs", label: "Docs" },
 ];
 
