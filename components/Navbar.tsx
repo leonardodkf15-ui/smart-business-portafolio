@@ -7,12 +7,10 @@ import { useState } from "react";
 const links = [
   { href: "/", label: "Home" },
   { href: "/core", label: "Core" },
-  { href: "/week1", label: "Week 1" },
-  { href: "/week2", label: "Week 2" },
-  { href: "/research", label: "Research" },
-  { href: "/week3", label: "Week 3" },
   { href: "/product", label: "Product" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/research", label: "Research" },
+  { href: "/marketing", label: "Marketing" },
   { href: "/docs", label: "Docs" },
 ];
 
@@ -21,10 +19,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white/90 backdrop-blur-sm">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="text-sm font-bold tracking-tight text-zinc-900">
-          Week 0 Build
+    <header className="sticky top-0 z-50 border-b border-slate-700/60 bg-[#0F172A]/95 backdrop-blur-sm">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="text-sm font-bold tracking-tight text-white">
+          <span className="text-blue-400">MX</span>NTOR
         </Link>
 
         {/* Desktop */}
@@ -35,8 +33,8 @@ export default function Navbar() {
               href={href}
               className={`text-sm font-medium transition-colors ${
                 pathname === href
-                  ? "text-zinc-900"
-                  : "text-zinc-500 hover:text-zinc-900"
+                  ? "text-white"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
               {label}
@@ -46,7 +44,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="sm:hidden text-zinc-500 hover:text-zinc-900"
+          className="sm:hidden text-slate-400 hover:text-white"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -64,14 +62,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-zinc-100 sm:hidden">
+        <div className="border-t border-slate-700/60 sm:hidden bg-[#0F172A]">
           {links.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setOpen(false)}
               className={`block px-6 py-3 text-sm font-medium transition-colors ${
-                pathname === href ? "text-zinc-900" : "text-zinc-500"
+                pathname === href ? "text-white" : "text-slate-400"
               }`}
             >
               {label}
