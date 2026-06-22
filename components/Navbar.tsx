@@ -12,6 +12,7 @@ const links = [
   { href: "/research", label: "Research" },
   { href: "/marketing", label: "Marketing" },
   { href: "/docs", label: "Docs" },
+  { href: "/chat", label: "Chat" },
 ];
 
 export default function Navbar() {
